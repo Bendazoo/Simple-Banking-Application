@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class Account {
     Scanner scanner = new Scanner(System.in);
+    static float balance = 0.00f;
 
     Account(){
 
