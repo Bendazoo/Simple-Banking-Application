@@ -5,10 +5,8 @@ public class Account {
 
     Account(){
 
-        boolean exit = false;
+        boolean exit = true;
         String option;
-
-
 
         do {
             System.out.println("A: Checking");
@@ -19,14 +17,13 @@ public class Account {
             String[] options = {"A","B","C","D","E"};
             option = scanner.nextLine();
 
-
             while(!(option.contains("A") || option.contains("B")||option.contains("C")||option.contains("D")||option.contains("E"))) {
                 System.out.println("Type a valid option: ");
                 option = scanner.nextLine();
             }
 
             switch(option){
-                case("A"): Checking checking = new Checking();
+                case("A"): Checking.balance();
                     break;
                 case("B"):
                     break;
@@ -34,14 +31,10 @@ public class Account {
                     break;
                 case("D"):
                     break;
-                case("E"): exit = true;
+                case("E"): exit = false; System.out.println("Have a great day!");
                     break;
             }
 
-
-
-
-        }while(exit = false);
-        System.out.println("Have a great day!");
+        }while(exit == true);
     }
 }
