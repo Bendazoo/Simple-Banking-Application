@@ -1,13 +1,13 @@
 import java.util.Scanner;
 
 public class Account {
-    Scanner scanner = new Scanner(System.in);
+    static Scanner scanner = new Scanner(System.in);
     static float balance = 0.00f;
 
     Account(){
 
         boolean exit = true;
-        String option;
+        String option = null;
 
         do {
             System.out.println("A: Checking");
@@ -15,8 +15,8 @@ public class Account {
             System.out.println("C: Withdraw");
             System.out.println("D: Previous Transaction");
             System.out.println("E: Exit");
-            String[] options = {"A","B","C","D","E"};
             option = scanner.nextLine();
+
 
             while(!(option.contains("A") || option.contains("B")||option.contains("C")||option.contains("D")||option.contains("E"))) {
                 System.out.println("Type a valid option: ");
@@ -26,7 +26,7 @@ public class Account {
             switch(option){
                 case("A"): Checking.balance();
                     break;
-                case("B"):
+                case("B"):Deposit.deposit();
                     break;
                 case("C"):
                     break;
@@ -35,6 +35,8 @@ public class Account {
                 case("E"): exit = false; System.out.println("Have a great day!");
                     break;
             }
+
+
 
         }while(exit == true);
     }
