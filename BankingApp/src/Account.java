@@ -2,7 +2,9 @@ import java.util.Scanner;
 
 public class Account {
     static Scanner scanner = new Scanner(System.in);
-    static float balance = 0.00f;
+    static double balance = 0.00f;
+    static String transaction;
+
 
     Account(){
 
@@ -26,11 +28,17 @@ public class Account {
             switch(option){
                 case("A"): Checking.balance();
                     break;
-                case("B"):Deposit.deposit();
+                case("B"):Deposit.deposit(); transaction = "deposit";
                     break;
-                case("C"):
+                case("C"):Withdraw.withdraw(); transaction = "withdraw";
                     break;
                 case("D"):
+                    if(transaction == "deposit"){
+                        System.out.printf("Deposited: %.2f\n", Deposit.money);
+                    } else if(transaction == "withdraw"){
+                        System.out.printf("Withdrawn: %.2f \n", Withdraw.money);
+                    }
+                    System.out.println("===========================");
                     break;
                 case("E"): exit = false; System.out.println("Have a great day!");
                     break;
